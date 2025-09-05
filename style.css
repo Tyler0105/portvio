@@ -8,22 +8,28 @@ body {
     background: #a5a5a5;
     color: #333;
 }
+
 .container {
     text-align: center;
     padding: 2rem;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    max-width: 500px;
+    width: 90%;
 }
+
 h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
+
 p {
     font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
-a {
+
+.btn-home {
     display: inline-block;
     padding: 10px 20px;
     background: #333;
@@ -32,6 +38,7 @@ a {
     border-radius: 6px;
     transition: background 0.3s ease;
 }
-a:hover {
+
+.btn-home:hover {
     background: #555;
 }
