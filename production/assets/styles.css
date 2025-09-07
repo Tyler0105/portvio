@@ -37,7 +37,6 @@ section.padding {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1200px; /* keeps content centered */
   padding: 16px 32px;
   box-sizing: border-box;
 }
