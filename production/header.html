@@ -1,20 +1,46 @@
 <header class="site-header">
-  <padding>
+  <section class="padding">
     <div class="logo">
-        <a href="">Portvio</a>
+      <a href="">Portvio</a>
     </div>
+
     <div class="navigation">
-        <nav class="tabs">
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-        </nav>
-        <nav class="buttons">
-            <button class="secondary-button">Button</button>
-            <button class="primary-button">Button</button>
-        </nav>
+      <!-- Tab Navigation -->
+      <nav class="tab-bar">
+        <ul>
+          <li class="tab">
+            <a href="#">
+              <svg class="tab-icon" aria-hidden="true" aria-current="page">
+                <use href="#icon-home"></use>
+              </svg>
+              <span>Home</span>
+            </a>
+          </li>
+          <li class="tab">
+            <a href="#">
+              <svg class="tab-icon" aria-hidden="true">
+                <use href="#icon-user"></use>
+              </svg>
+              <span>About</span>
+            </a>
+          </li>
+          <li class="tab">
+            <a href="#">
+              <svg class="tab-icon" aria-hidden="true">
+                <use href="#icon-briefcase"></use>
+              </svg>
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <nav class="buttons">
+        <button class="secondary-button">Button</button>
+        <button class="primary-button">Button</button>
+      </nav>
     </div>
-  </padding>
+  </section>
 </header>
+
