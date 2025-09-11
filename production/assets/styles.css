@@ -147,8 +147,10 @@ section.padding {
 
 /* FOOTER */
 .site-footer {
-  background: var(--off-black);
+  background: var(--plum);
   color: var(--off-white);
-  text-align: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
