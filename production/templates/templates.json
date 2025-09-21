@@ -1,7 +1,7 @@
 {
   "templateId": 1,
   "name": "Modern Resume",
-  "styles": "body { font-family: Arial, sans-serif; background: #111; color: #fff; }\n.resume { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }\n.left, .right { background: #222; padding: 20px; border-radius: 8px; }\nimg { width: 100%; border-radius: 8px; margin-bottom: 15px; }\nh1 { font-size: 3rem; margin: 0 0 20px; }\nh2 { font-size: 1.2rem; margin: 20px 0 10px; }\nh3 { margin: 10px 0 5px; font-size: 1rem; }\np { margin: 5px 0; line-height: 1.5; }\nul { padding-left: 20px; margin: 0; }\nli { margin-bottom: 5px; }",
+  "styles": "body {\n  font-family: Arial, sans-serif;\n  background: #f4f4f4;\n  margin: 0;\n  padding: 0;\n}\n\n.resume {\n  display: grid;\n  grid-template-columns: 1fr 2fr;\n  max-width: 900px;\n  margin: 30px auto;\n  background: #fff;\n  box-shadow: 0 2px 6px rgba(0,0,0,0.15);\n}\n\n.resume .left {\n  background: #2f3e46;\n  color: #fff;\n  padding: 30px 20px;\n}\n\n.resume .left img {\n  width: 120px;\n  height: 120px;\n  object-fit: cover;\n  border-radius: 50%;\n  display: block;\n  margin: 0 auto 20px;\n  border: 3px solid #fff;\n}\n\n.resume .left h2 {\n  margin-top: 25px;\n  font-size: 18px;\n  border-bottom: 1px solid rgba(255,255,255,0.3);\n  padding-bottom: 6px;\n  text-transform: uppercase;\n  letter-spacing: 1px;\n}\n\n.resume .left p,\n.resume .left li {\n  font-size: 14px;\n  line-height: 1.5;\n}\n\n.resume .left ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\n.resume .right {\n  padding: 30px 40px;\n}\n\n.resume .right h1 {\n  font-size: 28px;\n  margin: 0 0 15px;\n  color: #2f3e46;\n}\n\n.resume .right h2 {\n  margin-top: 20px;\n  font-size: 20px;\n  color: #354f52;\n  border-bottom: 2px solid #84a98c;\n  padding-bottom: 6px;\n}\n\n.resume .right p {\n  font-size: 15px;\n  line-height: 1.6;\n  margin: 10px 0;\n  color: #222;\n}\n\n.resume .job {\n  margin-bottom: 20px;\n}\n\n.resume .job h3 {\n  font-size: 16px;\n  margin: 0 0 4px;\n  color: #2f3e46;\n}\n\n.resume .job p em {\n  font-style: italic;\n  font-size: 13px;\n  color: #666;\n}\n",
   "layout": {
     "header": { "title": "RESUME" },
     "profile": { "title": "PROFILE", "content": "{{profile}}" },
@@ -20,3 +20,4 @@
     "photo": "{{photoUrl}}"
   }
 }
+
