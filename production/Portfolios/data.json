@@ -1,0 +1,39 @@
+{
+  "portfolioId": 101,
+  "templateId": 1,
+  "data": {
+    "name": "Olivia Wilson",
+    "location": "London",
+    "dob": "20.01.1995",
+    "profile": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    "experience": [
+      {
+        "role": "Assistant Fashion Designer",
+        "period": "January 2022 – Present",
+        "description": "Worked on seasonal fashion collections..."
+      },
+      {
+        "role": "Assistant Fashion Designer",
+        "period": "January 2020 – December 2021",
+        "description": "Assisted in product development and prototyping..."
+      }
+    ],
+    "education": [
+      {
+        "institution": "New York University of Fashion Design",
+        "period": "September 2015 – May 2019"
+      }
+    ],
+    "skills": [
+      "Trend Analysis",
+      "Fashion Design",
+      "Prototyping",
+      "Product Development",
+      "Creativity"
+    ],
+    "email": "hello@reallygreatsite.com",
+    "phone": "+123-456-7890",
+    "website": "reallygreatsite.com",
+    "photoUrl": "profile-photo.jpg"
+  }
+}

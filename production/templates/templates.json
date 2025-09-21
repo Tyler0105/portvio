@@ -1,0 +1,35 @@
+{
+  "templateId": 1,
+  "name": "Modern Resume",
+  "layout": {
+    "header": {
+      "title": "RESUME"
+    },
+    "profile": {
+      "title": "PROFILE",
+      "content": "{{profile}}"
+    },
+    "experience": {
+      "title": "PROFESSIONAL EXPERIENCE",
+      "items": "{{experience}}"
+    },
+    "contact": {
+      "title": "CONTACT",
+      "name": "{{name}}",
+      "location": "{{location}}",
+      "dob": "{{dob}}",
+      "email": "{{email}}",
+      "phone": "{{phone}}",
+      "website": "{{website}}"
+    },
+    "education": {
+      "title": "EDUCATION",
+      "items": "{{education}}"
+    },
+    "skills": {
+      "title": "KEY SKILLS",
+      "items": "{{skills}}"
+    },
+    "photo": "{{photoUrl}}"
+  }
+}
