@@ -30,5 +30,14 @@
   <footer class="site-footer">
     <p>&copy; 2025 MySite. All rights reserved.</p>
   </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(e) {
+      window.onload = function () {
+        setTimeout(function () {
+          alert("You are being redirected to the main page...");
+          window.location.href = "index.html"; // change this to your main page path
+        }, 2000);
+      };
+  </script>
 </body>
 </html>
