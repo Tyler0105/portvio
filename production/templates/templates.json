@@ -1,18 +1,11 @@
 {
   "templateId": 1,
   "name": "Modern Resume",
+  "styles": "body { font-family: Arial, sans-serif; background: #111; color: #fff; }\n.resume { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }\n.left, .right { background: #222; padding: 20px; border-radius: 8px; }\nimg { width: 100%; border-radius: 8px; margin-bottom: 15px; }\nh1 { font-size: 3rem; margin: 0 0 20px; }\nh2 { font-size: 1.2rem; margin: 20px 0 10px; }\nh3 { margin: 10px 0 5px; font-size: 1rem; }\np { margin: 5px 0; line-height: 1.5; }\nul { padding-left: 20px; margin: 0; }\nli { margin-bottom: 5px; }",
   "layout": {
-    "header": {
-      "title": "RESUME"
-    },
-    "profile": {
-      "title": "PROFILE",
-      "content": "{{profile}}"
-    },
-    "experience": {
-      "title": "PROFESSIONAL EXPERIENCE",
-      "items": "{{experience}}"
-    },
+    "header": { "title": "RESUME" },
+    "profile": { "title": "PROFILE", "content": "{{profile}}" },
+    "experience": { "title": "PROFESSIONAL EXPERIENCE", "items": "{{experience}}" },
     "contact": {
       "title": "CONTACT",
       "name": "{{name}}",
@@ -22,14 +15,8 @@
       "phone": "{{phone}}",
       "website": "{{website}}"
     },
-    "education": {
-      "title": "EDUCATION",
-      "items": "{{education}}"
-    },
-    "skills": {
-      "title": "KEY SKILLS",
-      "items": "{{skills}}"
-    },
+    "education": { "title": "EDUCATION", "items": "{{education}}" },
+    "skills": { "title": "KEY SKILLS", "items": "{{skills}}" },
     "photo": "{{photoUrl}}"
   }
 }

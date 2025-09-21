@@ -44,9 +44,18 @@ function renderResume(template, data) {
 }
 
 async function init() {
-  const template = await loadJSON("templates/templates.json");
+  const templates = await loadJSON("templates/templates.json");
   const data = await loadJSON("Portfolios/data.json");
 
+  // pick the first template for now
+  const template = templates[0];
+
+  // Inject styles from template
+  const styleTag = document.createElement("style");
+  styleTag.innerHTML = template.styles;
+  document.head.appendChild(styleTag);
+
+  // Render resume
   const html = renderResume(template, data);
   document.getElementById("app").innerHTML = html;
 }
