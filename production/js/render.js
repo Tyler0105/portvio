@@ -1,4 +1,4 @@
-// production/assets/js/script.js
+// robust loader that expects templates/templates.json to be an array
 async function loadJSON(file) {
   const res = await fetch(file);
   if (!res.ok) throw new Error(`Failed to fetch ${file} — ${res.status} ${res.statusText}`);
@@ -6,10 +6,7 @@ async function loadJSON(file) {
 }
 
 function renderResume(template, portfolio) {
-  // portfolio is expected to be: { portfolioId, templateId, data: { ... } }
   const d = portfolio.data || {};
-
-  // defensive access to template.layout
   const L = template.layout || {};
   const contact = L.contact || {};
   const header = L.header || {};
@@ -21,36 +18,47 @@ function renderResume(template, portfolio) {
   return `
     <div class="resume">
       <div class="left">
-        ${d.photoUrl ? `<img src="${d.photoUrl}" alt="${d.name || ''}">` : ''}
-        <h2>${contact.title || "Contact"}</h2>
-        <p><strong>${d.name || ''}</strong>${d.location ? ', ' + d.location : ''}</p>
-        ${d.dob ? `<p>DOB: ${d.dob}</p>` : ''}
-        <p>
-          ${d.email || ''}${d.email && d.phone ? '<br>' : ''}${d.phone || ''}${(d.email || d.phone) && d.website ? '<br>' : ''}${d.website || ''}
-        </p>
+        ${d.photoUrl ? `<img class="left__photo" src="${d.photoUrl}" alt="${d.name || ''}">` : ''}
+        <div class="left__info">
+          <div class="left__name">${d.name || ''}</div>
+          <div class="left__subtitle">${d.title || ''}</div>
 
-        <h2>${educationTitle}</h2>
-        ${(Array.isArray(d.education) ? d.education : []).map(edu => `
-          <p><strong>${edu.institution || ''}</strong><br>${edu.period || ''}</p>
-        `).join('')}
+          <div class="left__sectionTitle">${contact.title || 'Contact'}</div>
+          <ul class="left__list">
+            ${d.location ? `<li>${d.location}</li>` : ''}
+            ${d.email ? `<li>${d.email}</li>` : ''}
+            ${d.phone ? `<li>${d.phone}</li>` : ''}
+            ${d.website ? `<li>${d.website}</li>` : ''}
+          </ul>
 
-        <h2>${skillsTitle}</h2>
-        <ul>
-          ${(Array.isArray(d.skills) ? d.skills : []).map(skill => `<li>${skill}</li>`).join('')}
-        </ul>
+          <div class="left__sectionTitle">${educationTitle}</div>
+          <ul class="left__list">
+            ${(Array.isArray(d.education) ? d.education : []).map(e => `<li><strong>${e.institution || ''}</strong><br><small>${e.period || ''}</small></li>`).join('')}
+          </ul>
+
+          <div class="left__sectionTitle">${skillsTitle}</div>
+          <div style="width:100%; margin-top:10px;">
+            ${(Array.isArray(d.skills) ? d.skills : []).map(s => `<span class="left__skill">${s}</span>`).join('')}
+          </div>
+        </div>
       </div>
 
       <div class="right">
-        <h1>${header.title || ''}</h1>
+        <div class="right__header">
+          <div>
+            <h1>${header.title || d.name || ''}</h1>
+            <div class="right__titleSmall">${d.title || ''}</div>
+          </div>
+        </div>
 
-        <h2>${profile.title || 'Profile'}</h2>
-        <p>${d.profile || ''}</p>
+        <div class="sectionTitle">${profile.title || 'Profile'}</div>
+        <div class="profile"><p>${d.profile || ''}</p></div>
 
-        <h2>${experienceTitle}</h2>
+        <div class="sectionTitle">${experienceTitle}</div>
         ${(Array.isArray(d.experience) ? d.experience : []).map(exp => `
           <div class="job">
             <h3>${exp.role || ''}</h3>
-            <p><em>${exp.period || ''}</em></p>
+            <div class="meta">${exp.period || ''}${exp.company ? ' • ' + exp.company : ''}</div>
             <p>${exp.description || ''}</p>
           </div>
         `).join('')}
@@ -61,57 +69,35 @@ function renderResume(template, portfolio) {
 
 async function init() {
   try {
-    // Quick check: fetch won't work from file:// (browser security) — detect and warn
     if (location.protocol === 'file:') {
-      const msg = 'Cannot fetch JSON when page is opened via file:// — run a simple local server (e.g. `python -m http.server` or `npx http-server`) and open the page via http://.';
-      console.error(msg);
+      const msg = 'Please serve this over http(s) (e.g. run a local server) — fetch() won’t work from file://';
       document.getElementById('app').innerHTML = `<pre style="color:tomato">${msg}</pre>`;
+      console.error(msg);
       return;
     }
 
-    // load templates and portfolio
-    const templatesRaw = await loadJSON('templates/templates.json'); // relative to the page URL (test.html)
+    const templatesRaw = await loadJSON('templates/templates.json');
+    const templates = Array.isArray(templatesRaw) ? templatesRaw : [templatesRaw];
     const portfolio = await loadJSON('Portfolios/data.json');
 
-    // templates.json may be an array or a single object
-    const templates = Array.isArray(templatesRaw) ? templatesRaw : [templatesRaw];
-
-    // robust template matching: check templateId (number/string) or id field
     const desiredId = portfolio.templateId;
-    let template = templates.find(t =>
-      (t.templateId != null && String(t.templateId) === String(desiredId)) ||
-      (t.id != null && String(t.id) === String(desiredId))
-    );
+    let template = templates.find(t => (t.templateId != null && String(t.templateId) === String(desiredId)) || (t.id != null && String(t.id) === String(desiredId)));
 
-    if (!template) {
-      console.warn(`Template with id "${desiredId}" not found — falling back to first template.`);
-      template = templates[0];
-    }
+    if (!template) template = templates[0];
+    if (!template) throw new Error('No template available in templates/templates.json');
 
-    if (!template) {
-      throw new Error('No template found in templates.json');
-    }
-
-    // Get CSS from common keys (styles, css)
-    const cssText = template.styles ?? template.css ?? template.style ?? '';
-
-    // Inject CSS
+    const cssText = template.styles ?? template.css ?? '';
     if (cssText) {
       const styleTag = document.createElement('style');
-      // use textContent so backslashes and special chars are preserved
       styleTag.textContent = cssText;
       document.head.appendChild(styleTag);
-    } else {
-      console.info('No CSS found on template (styles/css property missing).');
     }
 
-    // Render HTML and inject
     const html = renderResume(template, portfolio);
     document.getElementById('app').innerHTML = html;
 
   } catch (err) {
-    console.error('Init error:', err);
-    // show error to user in the app area for easier debugging
+    console.error(err);
     document.getElementById('app').innerHTML = `<pre style="color:tomato">${err.message || err}</pre>`;
   }
 }
