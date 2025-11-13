@@ -18,7 +18,7 @@ function renderResume(template, portfolio) {
   return `
     <div class="resume">
       <div class="left">
-        ${d.photoUrl ? `<img class="left__photo" src="${d.photoUrl}" alt="${d.name || ''}">` : ''}
+        ${d.photoUrl ? `<img class="left__photo" src="assets/${d.photoUrl}" alt="${d.name || ''}">` : ''}
         <div class="left__info">
           <div class="left__name">${d.name || ''}</div>
           <div class="left__subtitle">${d.title || ''}</div>
