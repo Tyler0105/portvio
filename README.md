@@ -134,5 +134,5 @@ Portvio simplifies portfolio creation with a **guided, template-driven approach*
 - **Frontend**: HTML / CSS / JavaScript
 - **Backend**: Supabase / JavaScript
 - **Database**: PostgreSQL  
-- **Hosting**: GitHub Pages / Supabase  
+- **Hosting**: Cloudflare / Supabase  
 
