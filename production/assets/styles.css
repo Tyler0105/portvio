@@ -251,7 +251,7 @@ section.padding {
   display: flex;
   flex-direction: column;
   margin: 24px auto;
-  height: fit-content;
+  height: max;
   inline-size: fit-content;
   block-size: fit-content;
   justify-content: center;
