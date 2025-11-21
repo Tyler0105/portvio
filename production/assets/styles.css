@@ -250,7 +250,7 @@ section.padding {
 .mainContent.logIn {
   display: flex;
   flex-direction: column;
-  margin: 24px 0;
+  margin: 24px auto;
   height: fit-content;
   inline-size: fit-content;
   block-size: fit-content;
