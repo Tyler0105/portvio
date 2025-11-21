@@ -67,7 +67,7 @@ body {
 
 /* Log In */
 
-.mainContent.login {
+.mainContent.logIn {
   display: flex;
   flex-direction: column;
   margin: 24px 0;
