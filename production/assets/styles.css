@@ -180,4 +180,15 @@ section.padding {
     4px 8px 18px 3px rgb(var(--off-black) / 0.30);
 
   background: rgb(var(--lavender));
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.formInput {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
 }
