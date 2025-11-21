@@ -293,4 +293,5 @@ section.padding {
   margin-bottom: 0.35rem;
   color: rgb(var(--off-black));
   letter-spacing: 0.015em;
+  gap: 0.5rem;
 }
