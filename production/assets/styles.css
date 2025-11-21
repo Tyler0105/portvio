@@ -257,7 +257,6 @@ section.padding {
   justify-content: center;
   align-items: center;
   align-self: stretch;
-  min-height: 100%;
 }
 
 .form.logIn {
