@@ -164,6 +164,9 @@ section.padding {
   height: fit-content;
   inline-size: fit-content;
   block-size: fit-content;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
 }
 
 .form.logIn {
