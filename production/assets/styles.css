@@ -154,3 +154,14 @@ section.padding {
   justify-content: center;
   align-items: center;
 }
+
+/* Log In */
+
+.mainContent.logIn {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0;
+  height: fit-content;
+  inline-size: fit-content;
+  block-size: fit-content;
+}
