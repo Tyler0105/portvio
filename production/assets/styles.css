@@ -251,12 +251,13 @@ section.padding {
   display: flex;
   flex-direction: column;
   margin: 24px auto;
-  height: max;
+  height: 100%;
   inline-size: fit-content;
   block-size: fit-content;
   justify-content: center;
   align-items: center;
   align-self: stretch;
+  min-height: 100%;
 }
 
 .form.logIn {
