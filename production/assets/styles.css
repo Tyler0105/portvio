@@ -170,9 +170,8 @@ section.padding {
   display: flex;
   flex-direction: column;
   padding: 24px 53px;
-  fill: var(--vivid-purple);
   border-radius: 20px;
   border: 2px solid rgb(var(--off-black) / 0.10);
   box-shadow: 0 4px 8px 0 rgba(var(--off-black) / 0.10), 4px 8px 18px 3px rgba(var(--off-black) / 0.30);
-  
+  background: var(--Lavender, #E6E1F7);
 }
