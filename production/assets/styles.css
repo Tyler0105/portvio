@@ -284,3 +284,13 @@ section.padding {
   gap: 8px;
   align-self: stretch;
 }
+
+.formInput > label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  font-weight: var(--w-medium);
+  margin-bottom: 0.35rem;
+  color: rgb(var(--off-black));
+  letter-spacing: 0.015em;
+}
