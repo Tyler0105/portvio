@@ -1,14 +1,12 @@
 :root {
-  /* Base Neutrals */
-  --off-white: #F5F5F7;
-  --off-black: #1C1C1E;
+  --off-black: 28 28 30;       
+  --off-white: 245 245 247;
+  --lavender: 230 225 247;
+  --muted-purple: 161 140 209;
+  --vivid-purple: 123 92 214;
+  --deep-purple: 75 46 131;
+  --plum: 46 26 71;
 
-  /* Modern Purples */
-  --lavender: #E6E1F7;
-  --muted-purple: #A18CD1;
-  --vivid-purple: #7B5CD6;
-  --deep-purple: #4B2E83;
-  --plum: #2E1A47;
 }
 
 body {
